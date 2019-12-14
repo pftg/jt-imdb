@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 
 class MoviesController < ApplicationController
+  include Pagy::Backend
+
   before_action :authenticate_admin!, only: %i[edit update destroy]
-  #before_action :authenticate_admin!, only: %i[edit update destroy]
   before_action :set_movie, only: %i[show edit update destroy]
 
   # GET /movies
   # GET /movies.json
   def index
-    @movies = Movie.all
+    @pagy, @movies = pagy(Movie.all)
   end
 
   # GET /movies/1
