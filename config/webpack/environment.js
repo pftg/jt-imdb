@@ -1,5 +1,8 @@
 const { environment } = require('@rails/webpacker');
 
+// Enable the default config
+environment.splitChunks();
+
 const webpack = require('webpack');
 
 environment.plugins.append(
