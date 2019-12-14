@@ -1,11 +1,11 @@
-<tr id="<%= dom_id(movie) %>">
+<tr id="<%= dom_id(movie) %>" class="<%= dom_class(movie) %>">
   <td><%= movie.title %></td>
   <td><%= movie.text %></td>
   <td><%= movie.category %></td>
   <% if can_rate? %>
     <td>
       <% 1.upto(10) do |rate| %>
-        <% if rate == movie.current_user_rate %>
+        <% if rate == movie.user_rate %>
           < <b> <%= rate %> </b> >
         <% else %>
           <%= link_to(
@@ -19,7 +19,7 @@
   <% end %>
   <td><%= movie.ratings_count %></td>
 
-  <td><%= movie.total %></td>
+  <td><%= movie.ratings_sum %></td>
 
   <td><%= link_to 'Show', movie %></td>
   <td><%= link_to 'Edit', edit_movie_path(movie) if can_manage? %></td>

@@ -1,1 +1,1 @@
-Pagy::VARS[:items] = 2
+Pagy::VARS[:items] = 5

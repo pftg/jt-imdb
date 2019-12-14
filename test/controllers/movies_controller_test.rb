@@ -13,6 +13,13 @@ class MoviesControllerTest < ActionDispatch::IntegrationTest
   test 'should get index' do
     get movies_url
     assert_response :success
+    assert_select 'tr.movie', count: 3
+  end
+
+  test 'should get index filtered by category' do
+    get movies_url(category: @movie.category)
+    assert_response :success
+    assert_select 'tr.movie', count: 2
   end
 
   test 'should get new' do

@@ -2,6 +2,13 @@
 
 <h1>Movies</h1>
 
+<div>
+  <%= link_to 'All', movies_url %>
+  <% Movie::CATEGORIES.each do |category| %>
+    | <%= link_to category.titleize, movies_url(category: category) %>
+  <% end %>
+</div>
+
 <table id="movies">
   <thead>
   <tr>
@@ -26,6 +33,5 @@
 
 <% if can_manage? %>
   <br>
-
   <%= link_to 'New Movie', new_movie_path %>
 <% end %>

@@ -36,3 +36,5 @@ yarn-debug.log*
 .yarn-integrity
 /bin/git-hooks/post-merge
 /bin/git-hooks/pre-push
+
+/coverage

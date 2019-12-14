@@ -9,14 +9,13 @@ class MoviesController < ApplicationController
   # GET /movies
   # GET /movies.json
   def index
-    @pagy, movies = pagy(Movie.includes(:ratings).all)
+    @pagy, movies = pagy(current_movies_scope.includes(:ratings).all)
     @movies = MovieCarrier.wrap(movies, user: current_user)
   end
 
   # GET /movies/1
   # GET /movies/1.json
-  def show
-    @movie = MovieCarrier.new(@movie, user: current_user)
+  def show;
   end
 
   # GET /movies/new
@@ -25,7 +24,8 @@ class MoviesController < ApplicationController
   end
 
   # GET /movies/1/edit
-  def edit; end
+  def edit;
+  end
 
   # POST /movies
   # POST /movies.json
@@ -68,6 +68,12 @@ class MoviesController < ApplicationController
   end
 
   private
+
+  def current_movies_scope
+    result = Movie
+    result = result.where(category: params[:category]) if params[:category]
+    result
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_movie

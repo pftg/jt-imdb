@@ -11,3 +11,9 @@ star_wars:
   text: star_wars
   category: fantasy
   ratings_count: 1
+
+knives_out:
+  title: knives_out
+  text: knives_out
+  category: comedy
+  ratings_count: 1

@@ -8,20 +8,20 @@ class MovieCarrier
     @cached_ratings_stats = cached_stats || calculate_stats(movie, user)
   end
 
-  def total
+  def ratings_sum
     @cached_ratings_stats[:ratings_sums][@movie.id]
   end
 
-  def current_user_rate
+  def user_rate(_user = nil)
     @cached_ratings_stats[:values][@movie.id]
+  end
+
+  def text
+    @movie.text&.truncate(25)
   end
 
   def to_param
     @movie.to_param
-  end
-
-  def to_partial_path
-    @movie.to_partial_path
   end
 
   def to_model
