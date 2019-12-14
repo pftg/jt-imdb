@@ -1,6 +1,14 @@
 <h1>Editing Movie</h1>
 
 <%= render 'form', movie: @movie %>
+<hr>
 
-<%= link_to 'Show', @movie %> |
-<%= link_to 'Back', movies_path %>
+<ul class="nav nav-pills float-right">
+  <li class="nav-item ">
+    <%= link_to 'Show', @movie, class: ['nav-link'] %>
+  </li>
+
+  <li class="nav-item ">
+    <%= link_to link_to 'Back', movies_path, class: ['nav-link'] %>
+  </li>
+</ul>

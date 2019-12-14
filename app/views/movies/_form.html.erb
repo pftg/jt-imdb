@@ -11,22 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: 'form-control form-control-lg' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :text %>
-    <%= form.text_area :text %>
+    <%= form.text_area :text, class: 'form-control form-control-lg' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :category %>
-    <%= form.select :category, Movie::CATEGORIES.collect { |category| [category.titleize, category] } %>
+    <%= form.select :category, Movie::CATEGORIES.collect { |category| [category.titleize, category] }, {}, { class: 'form-control form-control-lg' } %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= form.submit class: 'btn btn-primary btn-lg' %>
 <% end %>

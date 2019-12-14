@@ -5,21 +5,18 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body>
-<% unless user_signed_in? %>
-  <ul class="text-center">
-    <li class="nav-item"><%= link_to 'Sign Up', new_user_registration_path, class: 'nav-link' %></li>
-    <li class="nav-item"><%= link_to 'Login', new_user_session_path, class: 'nav-link' %></li>
-  </ul>
-<% else %>
-  Logged in as <%= current_user.email %>
-  <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-<% end %>
+<%= render 'layouts/head' %>
+<div data-behavior="notices">
+  <%= render 'layouts/notices', flash: flash %>
+</div>
 
-<%= yield %>
+<div class="container">
+  <%= yield %>
+</div>
 </body>
 </html>

@@ -7,10 +7,16 @@ class Movie < ApplicationRecord
   ].freeze
 
   has_many :ratings, dependent: :delete_all
+
+  validates :title, :text, presence: true
   validates :category, presence: true, inclusion: CATEGORIES
 
   def ratings_sum
-    ratings.sum(&:value)
+    ratings.sum(:value)
+  end
+
+  def avg_rating
+    ratings.average(:value)
   end
 
   def user_rate(user)

@@ -1,37 +1,50 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Movies</h1>
 
-<div>
-  <%= link_to 'All', movies_url %>
+<ul class="nav nav-pills">
+  <li class="nav-item ">
+    <%= link_to 'All', movies_url, class: ['nav-link', current_category_class] %>
+  </li>
+
   <% Movie::CATEGORIES.each do |category| %>
-    | <%= link_to category.titleize, categorized_movies_url(category: category) %>
+    <li class="nav-item">
+      <%= link_to(
+            category.titleize,
+            categorized_movies_url(category: category),
+            class: ['nav-link', current_category_class(category)]
+          ) %>
+    </li>
   <% end %>
+</ul>
+
+<div class="table-responsive">
+  <table id="movies" class="table table-striped table-bordered table-hover">
+    <thead>
+    <tr>
+      <th>Title</th>
+      <th>Text</th>
+      <th>Category</th>
+      <% if can_rate? %>
+        <th>Your Rating</th>
+      <% end %>
+      <th>Ratings count</th>
+      <th>Ratings sum</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <%= render @movies %>
+    </tbody>
+  </table>
 </div>
 
-<table id="movies">
-  <thead>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-    <th>Category</th>
-    <% if can_rate? %>
-      <th>Your Rating</th>
-    <% end %>
-    <th>Ratings count</th>
-    <th>Ratings sum</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <%= render @movies %>
-  </tbody>
-</table>
-
-<%== pagy_nav(@pagy) %>
+<%== pagy_bootstrap_nav(@pagy) %>
 
 <% if can_manage? %>
-  <br>
-  <%= link_to 'New Movie', new_movie_path %>
+  <hr>
+  <ul class="nav nav-pills float-right">
+    <li class="nav-item ">
+      <%= link_to 'New Movie', new_movie_path, class: ['nav-link'] %>
+    </li>
+  </ul>
 <% end %>
