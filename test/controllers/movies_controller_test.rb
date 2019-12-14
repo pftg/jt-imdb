@@ -3,7 +3,10 @@
 require 'test_helper'
 
 class MoviesControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    sign_in users(:admin)
     @movie = movies(:star_wars)
   end
 

@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Imdb</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Imdb</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+<% unless user_signed_in? %>
+  <ul class="text-center">
+    <li class="nav-item"><%= link_to 'Sign Up', new_user_registration_path, class: 'nav-link' %></li>
+    <li class="nav-item"><%= link_to 'Login', new_user_session_path, class: 'nav-link' %></li>
+  </ul>
+<% else %>
+  Logged in as <%= current_user.email %>
+  <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+<% end %>
+
+<%= yield %>
+</body>
 </html>

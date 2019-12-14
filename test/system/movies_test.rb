@@ -4,6 +4,8 @@ require 'application_system_test_case'
 
 class MoviesTest < ApplicationSystemTestCase
   setup do
+    sign_in(users(:admin))
+
     @movie = movies(:star_wars)
   end
 
@@ -45,5 +47,14 @@ class MoviesTest < ApplicationSystemTestCase
     end
 
     assert_text 'Movie was successfully destroyed'
+  end
+
+  private
+
+  def sign_in(user = users(:admin))
+    visit new_user_session_path
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: 'welcome'
+    click_on 'Log in'
   end
 end
