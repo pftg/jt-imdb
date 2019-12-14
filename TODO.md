@@ -7,6 +7,6 @@ Using Ruby on Rails create a IMDB clone.
 - [x] From Home page it is possible to provide a quick star rating without reloading a page.
 - [x] Admin Interface to manage movies (CRUD)
 - [x] Pagination of Movies on Home Page
-- [ ] Deploy application to cloud server like a Heroku or DigitalOcean
+- [x] Deploy application to cloud server like a Heroku or DigitalOcean
 - [x] Provide test coverage for the app using rspec or TDD
 - [x] Use bootstrap or similar for the UI
