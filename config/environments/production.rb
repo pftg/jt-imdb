@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -51,10 +53,22 @@ Rails.application.configure do
   config.log_level = :debug
 
   # Prepend all log lines with the following tags.
-  config.log_tags = [ :request_id ]
+  config.log_tags = [:request_id]
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
+
+  if ENV['MEMCACHIER_SERVERS']
+    config.cache_store = :mem_cache_store,
+                         (ENV['MEMCACHIER_SERVERS'] || '').split(','),
+                         { username: ENV['MEMCACHIER_USERNAME'],
+                           password: ENV['MEMCACHIER_PASSWORD'],
+                           failover: true,
+                           socket_timeout: 1.5,
+                           socket_failure_delay: 0.2,
+                           down_retry_delay: 60,
+                           pool_size: ENV.fetch("RAILS_MAX_THREADS") { 5 }, }
+  end
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
@@ -65,6 +79,17 @@ Rails.application.configure do
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    user_name: '67a9f5a6c37829',
+    password: '860317fbdd7043',
+    address: 'smtp.mailtrap.io',
+    domain: 'smtp.mailtrap.io',
+    port: '2525',
+    authentication: :cram_md5,
+  }
+  config.action_mailer.default_url_options = { host: 'jt-imdb.herokuapp.com', port: 80 }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
@@ -80,7 +105,7 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
+  if ENV['RAILS_LOG_TO_STDOUT'].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
@@ -106,7 +131,7 @@ Rails.application.configure do
   # DatabaseSelector middleware is designed as such you can define your own
   # strategy for connection switching and pass that into the middleware through
   # these configuration options.
-  # config.active_record.database_selector = { delay: 2.seconds }
-  # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
-  # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+   config.active_record.database_selector = { delay: 2.seconds }
+   config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
+   config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 end

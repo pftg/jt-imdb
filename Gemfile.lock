@@ -78,7 +78,9 @@ GEM
       simplecov
       url
     concurrent-ruby (1.1.5)
+    connection_pool (2.2.2)
     crass (1.0.5)
+    dalli (2.7.10)
     devise (4.7.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -123,6 +125,7 @@ GEM
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     pagy (3.7.1)
+    pg (1.1.4)
     public_suffix (4.0.1)
     puma (4.3.1)
       nio4r (~> 2.0)
@@ -196,7 +199,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.1)
     thor (1.0.0)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -236,12 +238,15 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   codecov
+  connection_pool
+  dalli
   devise
   jbuilder (~> 2.7)
   letter_opener
   listen (>= 3.0.5, < 3.2)
   minitest-ci
   pagy
+  pg (>= 0.18, < 2.0)
   puma (~> 4.1)
   rails (~> 6.0.1)
   sass-rails (>= 6)
@@ -249,7 +254,6 @@ DEPENDENCIES
   simplecov
   spring
   spring-watcher-listen (~> 2.0.0)
-  sqlite3 (~> 1.4)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)
