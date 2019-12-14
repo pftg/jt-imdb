@@ -9,7 +9,7 @@ class MoviesController < ApplicationController
   # GET /movies
   # GET /movies.json
   def index
-    @pagy, movies = pagy(current_movies_scope.includes(:ratings).all)
+    @pagy, movies = pagy(current_movies_scope.order(title: :asc, id: :desc).includes(:ratings))
     @movies = MovieCarrier.wrap(movies, user: current_user)
   end
 
