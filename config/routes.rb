@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  resources :ratings
+  resources :ratings, only: %i[create update]
   resources :movies
 
   devise_for :users
