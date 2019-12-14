@@ -16,6 +16,16 @@ class MoviesTest < ApplicationSystemTestCase
     assert_selector 'td', text: '5'
   end
 
+  test 'filter by category' do
+    visit movies_url
+
+    click_on 'Western'
+    assert_no_selector 'tr.movie'
+
+    click_on 'All'
+    assert_selector 'tr.movie', count: 3
+  end
+
   test 'creating a Movie' do
     visit movies_url
     click_on 'New Movie'

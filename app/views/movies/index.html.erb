@@ -5,7 +5,7 @@
 <div>
   <%= link_to 'All', movies_url %>
   <% Movie::CATEGORIES.each do |category| %>
-    | <%= link_to category.titleize, movies_url(category: category) %>
+    | <%= link_to category.titleize, categorized_movies_url(category: category) %>
   <% end %>
 </div>
 

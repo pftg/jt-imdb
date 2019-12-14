@@ -2,6 +2,11 @@
 
 Rails.application.routes.draw do
   resources :ratings, only: %i[create update]
+
+  scope ':category', as: 'categorized' do
+    resources :movies, only: [:index]
+  end
+
   resources :movies
 
   devise_for :users
