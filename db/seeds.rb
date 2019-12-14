@@ -3,5 +3,13 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+User.create([
+  { email: 'user@example.com', password: 'welcome' },
+  { email: 'admin@example.com', password: 'welcome' },
+])
+
+movies = Movie.create([
+  { title: 'Star Wars', category: 'fantasy', text: 'Luke Skywalker, a young farmer from the desert planet of Tattooine, must save Princess Leia from the evil Darth Vader.' },
+  { title: 'The Lord of the Rings', category: 'fantasy', text: 'Lord of the Rings based TV-series, set during the 3,441-year period, known as the Age of Númenor, or the Second Age.' },
+  { title: 'Knives Out', category: 'comedy', text: 'A detective investigates the death of a patriarch of an eccentric, combative family.' }
+])
