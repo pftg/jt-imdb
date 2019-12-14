@@ -11,4 +11,4 @@ user:
 admin:
   email: admin@example.com
   encrypted_password: "$2a$11$cW5EFpZlFMLIYb0pRtX5.u8AEU85FrBlcXMo1WmSbMW5DHeuC4o/S" # <%= Devise::Encryptor.digest(User, 'welcome') %>
-  role: admin
+  role: 1

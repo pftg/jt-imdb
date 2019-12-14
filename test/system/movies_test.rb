@@ -4,7 +4,7 @@ require 'application_system_test_case'
 
 class MoviesTest < ApplicationSystemTestCase
   setup do
-    @movie = movies(:one)
+    @movie = movies(:star_wars)
   end
 
   test 'visiting the index' do

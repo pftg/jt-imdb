@@ -1,6 +1,6 @@
 Using Ruby on Rails create a IMDB clone.
 
-- [ ] Movie: Title, Text, Ratings, Category
+- [x] Movie: Title, Text, Ratings, Category
 - [ ] Ratings system from 1-10 available to registered users
 - [ ] Home page that shows all movies and ability to filter movies by categories (URL driven and SEO Friendly)
 - [ ] Movie Details Page that shows average rating

@@ -9,5 +9,7 @@ class CreateMovies < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+
+    add_index :movies, :category, using: 'btree'
   end
 end

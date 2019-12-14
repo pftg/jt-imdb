@@ -4,7 +4,7 @@ require 'test_helper'
 
 class MoviesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @movie = movies(:one)
+    @movie = movies(:star_wars)
   end
 
   test 'should get index' do

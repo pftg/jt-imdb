@@ -13,3 +13,10 @@ movies = Movie.create([
   { title: 'The Lord of the Rings', category: 'fantasy', text: 'Lord of the Rings based TV-series, set during the 3,441-year period, known as the Age of Númenor, or the Second Age.' },
   { title: 'Knives Out', category: 'comedy', text: 'A detective investigates the death of a patriarch of an eccentric, combative family.' }
 ])
+
+Movie.find_each do |movie|
+  movie.ratings.create([
+    { user: User.first, movie: movie, value: rand(9) + 1 },
+    { user: User.second, movie: movie, value: rand(9) + 1 }
+  ])
+end

@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+user_rated_lord_of_the_rings:
+  user: :user
+  movie: :lord_of_the_rings
+  value: 5
+
+user_rated_star_wars:
+  user: :user
+  movie: :star_wars
+  value: 5

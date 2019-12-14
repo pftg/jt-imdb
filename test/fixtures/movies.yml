@@ -1,15 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  text: MyText
-  category: one
-  ratings_count: 1
-  ratings_sum: 1
+lord_of_the_rings:
+  title: LORD_OF_THE_RINGS
+  text: lord_of_the_rings
+  category: fantasy
 
-two:
-  title: MyString
-  text: MyText
-  category: two
-  ratings_count: 1
-  ratings_sum: 1
+star_wars:
+  title: star_wars
+  text: star_wars
+  category: fantasy
