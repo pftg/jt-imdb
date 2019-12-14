@@ -11,10 +11,6 @@ class Movie < ApplicationRecord
   validates :title, :text, presence: true
   validates :category, presence: true, inclusion: CATEGORIES
 
-  def ratings_sum
-    ratings.sum(:value)
-  end
-
   def avg_rating
     ratings.average(:value)
   end

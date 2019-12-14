@@ -17,9 +17,7 @@
       <% end %>
     </td>
   <% end %>
-  <td><%= movie.ratings_count %></td>
-
-  <td><%= movie.ratings_sum %></td>
+  <td><%= movie.avg_rating %></td>
 
   <td><%= link_to 'Show', movie %></td>
   <td><%= link_to 'Edit', edit_movie_path(movie) if can_manage? %></td>

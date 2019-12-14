@@ -5,7 +5,7 @@ require 'test_helper'
 class MovieCarrierTest < ActiveSupport::TestCase
   test 'wrap movie scope with pre-calculated ratings' do
     @movie_carriers = MovieCarrier.wrap(Movie.all)
-    assert_equal 5, @movie_carriers.first.ratings_sum
+    assert_equal 5, @movie_carriers.first.avg_rating
   end
 
   test 'wrap movie scope with pre-calculated rating from user' do

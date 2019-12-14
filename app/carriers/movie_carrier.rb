@@ -8,8 +8,8 @@ class MovieCarrier
     @cached_ratings_stats = cached_stats || calculate_stats(movie, user)
   end
 
-  def ratings_sum
-    @cached_ratings_stats[:ratings_sums][@movie.id]
+  def avg_rating
+    @cached_ratings_stats[:avg_ratings][@movie.id]
   end
 
   def user_rate(_user = nil)
@@ -32,7 +32,7 @@ class MovieCarrier
     movies = movie_scope.to_a
 
     cache = {
-      ratings_sums: calculate_totals(movies),
+      avg_ratings: calculate_totals(movies),
       values: current_user_rates(movies, user),
     }
 
@@ -43,7 +43,7 @@ class MovieCarrier
 
   def calculate_stats(movie, user)
     {
-      ratings_sums: { movie.id => movie.ratings_sum },
+      avg_ratings: { movie.id => movie.avg_rating },
       values: { movie.id => movie.user_rate(user) },
     }
   end
@@ -64,6 +64,6 @@ class MovieCarrier
     Rating
       .where(movie_id: movies.collect(&:id))
       .group(:movie_id)
-      .sum(:value)
+      .average(:value)
   end
 end

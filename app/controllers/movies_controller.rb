@@ -15,8 +15,7 @@ class MoviesController < ApplicationController
 
   # GET /movies/1
   # GET /movies/1.json
-  def show;
-  end
+  def show; end
 
   # GET /movies/new
   def new
@@ -24,8 +23,7 @@ class MoviesController < ApplicationController
   end
 
   # GET /movies/1/edit
-  def edit;
-  end
+  def edit; end
 
   # POST /movies
   # POST /movies.json
@@ -82,6 +80,6 @@ class MoviesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def movie_params
-    params.require(:movie).permit(:title, :text, :category, :ratings_count, :ratings_sum)
+    params.require(:movie).permit(:title, :text, :category, :ratings_count)
   end
 end

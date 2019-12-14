@@ -65,7 +65,7 @@ class MoviesTest < ApplicationSystemTestCase
 
   def sign_in(user = users(:admin))
     visit new_user_session_path
-    fill_in 'Email', with: user.email
+    fill_in 'Email Address', with: user.email
     fill_in 'Password', with: 'welcome'
     click_on 'Log in'
   end
