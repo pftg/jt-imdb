@@ -42,3 +42,5 @@ test:
 production:
   <<: *default
   database: imdb_production
+  username: imdb
+  password: <%= ENV['IMDB_DATABASE_PASSWORD'] %>
