@@ -2,7 +2,11 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
-#
+
+Rating.delete_all
+User.delete_all
+Movie.delete_all
+
 User.create([
   { email: 'user@example.com', password: 'welcome' },
   { email: 'admin@example.com', password: 'welcome', role: :admin },
