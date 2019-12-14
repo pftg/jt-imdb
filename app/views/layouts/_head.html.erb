@@ -1,8 +1,12 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light">
   <div class="container">
-    <%= link_to 'IMDB', root_path, class: 'navbar-brand' %>
+    <%= link_to root_path, class: 'navbar-brand', class: 'navbar-brand' do %>
+      <%= image_tag image_path('logo.svg'), height: 40, width: 40 %>
+      <span>jtIMDB</span>
+    <% end %>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain"
+            aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
