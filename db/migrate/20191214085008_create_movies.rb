@@ -5,8 +5,6 @@ class CreateMovies < ActiveRecord::Migration[6.0]
       t.text :text
       t.string :category
       t.integer :ratings_count
-      t.integer :ratings_sum
-
       t.timestamps
     end
 

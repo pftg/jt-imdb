@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 2019_12_14_093852) do
     t.text "text"
     t.string "category"
     t.integer "ratings_count"
-    t.integer "ratings_sum"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category"], name: "index_movies_on_category"

@@ -8,4 +8,14 @@ class Movie < ApplicationRecord
 
   has_many :ratings, dependent: :delete_all
   validates :category, presence: true, inclusion: CATEGORIES
+
+  def ratings_sum
+    ratings.sum(&:value)
+  end
+
+  def user_rate(user)
+    user || return
+
+    ratings.where(user_id: user.id).pick(:value)
+  end
 end

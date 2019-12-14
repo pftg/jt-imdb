@@ -25,8 +25,6 @@ class MoviesControllerTest < ActionDispatch::IntegrationTest
       post movies_url, params: {
         movie: {
           category: @movie.category,
-          ratings_count: @movie.ratings_count,
-          ratings_sum: @movie.ratings_sum,
           text: @movie.text,
           title: @movie.title
         }
@@ -50,8 +48,6 @@ class MoviesControllerTest < ActionDispatch::IntegrationTest
     patch movie_url(@movie), params: {
       movie: {
         category: @movie.category,
-        ratings_count: @movie.ratings_count,
-        ratings_sum: @movie.ratings_sum,
         text: @movie.text,
         title: @movie.title
       }

@@ -4,14 +4,23 @@
   <td><%= movie.category %></td>
   <% if can_rate? %>
     <td>
-      <%= movie.ratings.find_by(user: current_user)&.value %>
-       | (<% 10.times do |rate| %>
-        <%= link_to rate, ratings_path('rating[movie_id]' => movie, 'rating[value]' => rate), method: :post, remote: true %>
-      <% end %>)
+      <% 1.upto(10) do |rate| %>
+        <% if rate == movie.current_user_rate %>
+          < <b> <%= rate %> </b> >
+        <% else %>
+          <%= link_to(
+                rate,
+                ratings_path('rating[movie_id]' => movie, 'rating[value]' => rate),
+                method: :post, remote: true
+              ) %>
+        <% end %>
+      <% end %>
     </td>
   <% end %>
   <td><%= movie.ratings_count %></td>
-  <td><%= movie.ratings_sum %></td>
+
+  <td><%= movie.total %></td>
+
   <td><%= link_to 'Show', movie %></td>
   <td><%= link_to 'Edit', edit_movie_path(movie) if can_manage? %></td>
   <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } if can_manage? %></td>
