@@ -10,7 +10,11 @@
   <dd><%= @movie.category.titleize %></dd>
 
   <dt>Average Rating:</dt>
-  <dd><%= @movie.avg_rating %> by <%= @movie.ratings_count %> users</dd>
+
+  <dd>
+    <%= number_with_precision(@movie.avg_rating, precision: 2, significant: true, strip_insignificant_zeros: true) %>
+    by <%= @movie.ratings_count %> users
+  </dd>
 </dl>
 
 <hr>

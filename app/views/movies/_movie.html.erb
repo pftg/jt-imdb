@@ -17,7 +17,7 @@
       <% end %>
     </td>
   <% end %>
-  <td><%= movie.avg_rating %></td>
+  <td><%= number_with_precision(movie.avg_rating, precision: 2, significant: true, strip_insignificant_zeros: true) %></td>
 
   <td><%= link_to 'Show', movie %></td>
   <td><%= link_to 'Edit', edit_movie_path(movie) if can_manage? %></td>
