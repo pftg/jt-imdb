@@ -18,7 +18,7 @@ class MoviesTest < ApplicationSystemTestCase
     visit movies_url
     click_on 'New Movie'
 
-    fill_in 'Category', with: @movie.category
+    select 'Comedy', from: 'Category'
     fill_in 'Text', with: @movie.text
     fill_in 'Title', with: @movie.title
     click_on 'Create Movie'
@@ -31,7 +31,7 @@ class MoviesTest < ApplicationSystemTestCase
     visit movies_url
     click_on 'Edit', match: :first
 
-    fill_in 'Category', with: @movie.category
+    select 'Fantasy', from: 'Category'
     fill_in 'Text', with: @movie.text
     fill_in 'Title', with: @movie.title
     click_on 'Update Movie'
