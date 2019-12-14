@@ -55,7 +55,7 @@ class MovieCarrier
       Rating
         .where(movie_id: movies.collect(&:id))
         .where(user_id: user.id)
-        .group(:movie_id)
+        .group(:movie_id, :value)
         .pluck(:movie_id, :value)
     ]
   end
