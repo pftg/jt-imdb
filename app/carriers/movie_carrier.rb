@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MovieCarrier
   delegate_missing_to :@movie
 
@@ -31,7 +33,7 @@ class MovieCarrier
 
     cache = {
       ratings_sums: calculate_totals(movies),
-      values: current_user_rates(movies, user)
+      values: current_user_rates(movies, user),
     }
 
     movies.map { |movie| MovieCarrier.new(movie, cached_stats: cache, user: user) }
@@ -47,7 +49,8 @@ class MovieCarrier
   end
 
   def self.current_user_rates(movies, user)
-    return {} unless user
+    return {} if user.nil?
+
     Hash[
       Rating
         .where(movie_id: movies.collect(&:id))

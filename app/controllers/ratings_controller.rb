@@ -5,7 +5,7 @@ class RatingsController < ApplicationController
     @rating = find_or_build
     respond_to do |format|
       if @rating.save
-        format.html { redirect_to movies_path, notice: 'Successfully rated.' }
+        format.html { redirect_back fallback_location: movies_path, notice: 'Successfully rated.' }
         format.json { render :show, status: :created, location: @rating }
       else
         format.html { redirect_to movies_path, alert: 'There are problems with rating' }

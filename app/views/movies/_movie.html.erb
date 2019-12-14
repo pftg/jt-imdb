@@ -1,4 +1,4 @@
-<tr>
+<tr id="<%= dom_id(movie) %>">
   <td><%= movie.title %></td>
   <td><%= movie.text %></td>
   <td><%= movie.category %></td>
@@ -10,7 +10,7 @@
         <% else %>
           <%= link_to(
                 rate,
-                ratings_path('rating[movie_id]' => movie, 'rating[value]' => rate),
+                ratings_path('rating[movie_id]' => movie.id, 'rating[value]' => rate),
                 method: :post, remote: true
               ) %>
         <% end %>

@@ -10,7 +10,7 @@ class MoviesController < ApplicationController
   # GET /movies.json
   def index
     @pagy, movies = pagy(Movie.includes(:ratings).all)
-    @movies = MovieCarrier.wrap(movies)
+    @movies = MovieCarrier.wrap(movies, user: current_user)
   end
 
   # GET /movies/1
