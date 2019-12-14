@@ -1,0 +1,104 @@
+---
+require:
+  - rubocop-performance
+  - rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 2.6
+  Exclude:
+    - 'db/schema.rb'
+    - 'db/migrate/**/*'
+
+Layout/EmptyLinesAroundBlockBody:
+  Exclude:
+    - 'db/schema.rb'
+
+Layout/HashAlignment:
+  EnforcedHashRocketStyle: key
+  EnforcedColonStyle: key
+  EnforcedLastArgumentHashStyle: always_inspect
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/MultilineMethodCallBraceLayout:
+  EnforcedStyle: symmetrical
+
+Layout/SpaceInLambdaLiteral:
+  EnforcedStyle: require_space
+
+Layout/ParameterAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+Naming/PredicateName:
+  Exclude:
+    - 'app/helpers/application_helper.rb'
+
+Metrics/AbcSize:
+  Exclude:
+    - test/**/*.rb
+
+Metrics/LineLength:
+  Max: 113
+
+Metrics/ClassLength:
+  CountComments: false
+  Exclude:
+    - 'test/**/*.rb'
+
+Metrics/MethodLength:
+  CountComments: false
+  Exclude:
+    - 'test/**/*.rb'
+
+Metrics/ModuleLength:
+  CountComments: false
+  Exclude:
+    - 'test/**/*.rb'
+
+Naming/MemoizedInstanceVariableName:
+  EnforcedStyleForLeadingUnderscores: required
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'test/**/*.rb'
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+Style/SafeNavigation:
+  Enabled: false
+
+Style/StabbyLambdaParentheses:
+  EnforcedStyle: require_no_parentheses
+
+Style/StringLiterals:
+  Exclude:
+    - 'db/schema.rb'
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
+# Rails
+
+Rails:
+  Enabled: true
+
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+Rails/SkipsModelValidations:
+  Blacklist: []
+
+Rails/UnknownEnv:
+  Environments:
+    - development
+    - production
+    - staging
+    - test
