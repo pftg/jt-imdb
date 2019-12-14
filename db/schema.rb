@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2019_12_14_093852) do
     t.index ["category"], name: "index_movies_on_category"
   end
 
-  create_table "ratings", id: false, force: :cascade do |t|
+  create_table "ratings", force: :cascade do |t|
     t.integer "value", default: 5, null: false
     t.integer "user_id", null: false
     t.integer "movie_id", null: false

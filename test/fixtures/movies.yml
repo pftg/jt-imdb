@@ -4,8 +4,10 @@ lord_of_the_rings:
   title: LORD_OF_THE_RINGS
   text: lord_of_the_rings
   category: fantasy
+  ratings_count: 1
 
 star_wars:
   title: star_wars
   text: star_wars
   category: fantasy
+  ratings_count: 1
