@@ -24,6 +24,8 @@
 
 <%== pagy_nav(@pagy) %>
 
-<br>
+<% if can_manage? %>
+  <br>
 
-<%= link_to 'New Movie', new_movie_path %>
+  <%= link_to 'New Movie', new_movie_path %>
+<% end %>
