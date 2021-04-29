@@ -1,0 +1,39 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: weekly
+    time: "03:00"
+  open-pull-requests-limit: 10
+  versioning-strategy: lockfile-only
+  allow:
+  - dependency-type: development
+  ignore:
+  - dependency-name: eslint-plugin-prettier
+    versions:
+    - 3.3.1
+  - dependency-name: jquery
+    versions:
+    - 3.5.1
+- package-ecosystem: bundler
+  directory: "/"
+  schedule:
+    interval: weekly
+    time: "03:00"
+  open-pull-requests-limit: 10
+  versioning-strategy: lockfile-only
+  allow:
+  - dependency-type: all
+  ignore:
+  - dependency-name: codecov
+    versions:
+    - 0.4.3
+    - 0.5.1
+  - dependency-name: nokogiri
+    versions:
+    - 1.11.1
+    - 1.11.2
+  - dependency-name: webdrivers
+    versions:
+    - 4.5.0
